@@ -1,0 +1,9 @@
+{% for post in posts_list %}
+<div>
+    <h2><a href="{% url 'detail' post.id %}">{{ post.title }}</a></h2>
+    <div>{{ post.body|truncatewords_html:"60"|safe }}</div>
+    <div>{{ post.created_on|date:"d, M Y" }}</div>
+</div>
+{% empty %}
+<h1>Blog is empty!</h1>
+{% endfor %}
